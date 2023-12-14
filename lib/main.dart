@@ -10,7 +10,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  Provider.debugCheckInvalidValueType = null;
+  //await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
   runApp(
     MultiProvider(
       providers: [

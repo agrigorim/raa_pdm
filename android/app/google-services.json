@@ -1,10 +1,30 @@
 {
   "project_info": {
     "project_number": "545888584887",
+    "firebase_url": "https://raa-pdm-default-rtdb.firebaseio.com",
     "project_id": "raa-pdm",
     "storage_bucket": "raa-pdm.appspot.com"
   },
   "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545888584887:android:4797ce56db8da249197932",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5p2xZojG5UrGNCb45BxU59WPchuyhVqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
     {
       "client_info": {
         "mobilesdk_app_id": "1:545888584887:android:f8e69e32e960869c197932",

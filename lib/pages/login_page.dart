@@ -15,10 +15,8 @@ class _LoginPageState extends State<LoginPage> {
   final formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController senhaController = TextEditingController();
-  final GlobalKey<NavigatorState> _navigator = GlobalKey<NavigatorState>();
-
+  String errorMessage = '';
   bool loading = false;
-  bool logged = false;
 
   login() async {
     setState(() => loading = true);
@@ -31,15 +29,17 @@ class _LoginPageState extends State<LoginPage> {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(e.mensagem)));
     }
-    if (loading) {
-      setState(() => logged = true);
-      setState(() => loading = false);
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.blue[900],
+        titleTextStyle: TextStyle(color: Colors.white),
+        title: Text('Seja Bem-Vindo!'),
+      ),
       body: Form(
         key: formKey,
         child: Column(
@@ -57,6 +57,7 @@ class _LoginPageState extends State<LoginPage> {
               },
             ),
             TextFormField(
+              obscureText: true,
               controller: senhaController,
               decoration: InputDecoration(
                 labelText: 'Senha',
@@ -68,37 +69,32 @@ class _LoginPageState extends State<LoginPage> {
                 return null;
               },
             ),
-            ElevatedButton(
-              onPressed: () {
-                if (formKey.currentState != null &&
-                    formKey.currentState!.validate()) {
-                  login();
-                }
-                if (logged) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => HomePage(),
-                    ),
-                  );
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Usuário ou senha incorreto!')));
-                }
-              },
-              child: Text('Entrar'),
-            ),
-            ElevatedButton(
-              child: Text('Cadastre-se'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CadastroPage(),
-                  ),
-                );
-              },
-            ),
+            Padding(padding: EdgeInsets.all(10)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {
+                      login();
+                    }
+                  },
+                  child: Text('Entrar'),
+                ),
+                Padding(padding: EdgeInsets.all(10)),
+                ElevatedButton(
+                  child: Text('Cadastre-se'),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CadastroPage(),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            )
           ],
         ),
       ),

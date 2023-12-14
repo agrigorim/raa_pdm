@@ -9,9 +9,9 @@ class AuthException implements Exception {
 class AuthService extends ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   User? usuario;
-  bool isLoading;
+  bool isLoading = true;
 
-  AuthService() : isLoading = true {
+  AuthService() {
     _authCheck();
   }
 
