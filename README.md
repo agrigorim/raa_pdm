@@ -1,16 +1,10 @@
-# raa_pdm
+# Instalação
 
-A new Flutter project.
+# Configuração
 
-## Getting Started
+# Compilação
 
-This project is a starting point for a Flutter application.
+# Teste
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Aluna
+Ana Beatriz de Lima Grigorim RA: 2374951
