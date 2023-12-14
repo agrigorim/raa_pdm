@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:raa_pdm/models/comentario.dart';
 import 'package:raa_pdm/models/solicitacao.dart';
 import 'package:raa_pdm/services/auth_service.dart';
+import 'package:geolocator/geolocator.dart';
 
 class FireStoreService {
   FirebaseFirestore _db = FirebaseFirestore.instance;
@@ -13,6 +14,7 @@ class FireStoreService {
         'descricao': descricao,
         'data': DateTime.now(),
         'usuario': AuthService().usuario!.uid,
+        //'localizacao':
       },
     );
   }

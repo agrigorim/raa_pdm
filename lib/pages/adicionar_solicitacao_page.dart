@@ -12,15 +12,16 @@ class AdicionarSolicitacaoPage extends StatefulWidget {
 class _AdicionarSolicitacaoPageState extends State<AdicionarSolicitacaoPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   FireStoreService fireStoreService = FireStoreService();
-  TextEditingController _tituloController = TextEditingController();
-  TextEditingController _descricaoController = TextEditingController();
+  TextEditingController tituloController = TextEditingController();
+  TextEditingController descricaoController = TextEditingController();
 
-  cadastrar(String titulo, String descricao) {
+  cadastrar() {
     if (_formKey.currentState!.validate()) {
-      fireStoreService.adicionarSolicitacao(titulo, descricao);
+      fireStoreService.adicionarSolicitacao(
+          tituloController.text, descricaoController.text);
     }
-    _tituloController.clear();
-    _descricaoController.clear();
+    tituloController.clear();
+    descricaoController.clear();
   }
 
   @override
@@ -36,7 +37,7 @@ class _AdicionarSolicitacaoPageState extends State<AdicionarSolicitacaoPage> {
           TextButton(
             onPressed: () {
               if (_formKey.currentState!.validate()) {
-                cadastrar(_tituloController.text, _descricaoController.text);
+                cadastrar();
               }
             },
             child: Text('Cadastrar'),
@@ -53,7 +54,7 @@ class _AdicionarSolicitacaoPageState extends State<AdicionarSolicitacaoPage> {
           child: Column(
             children: [
               TextFormField(
-                controller: _tituloController,
+                controller: tituloController,
                 decoration: InputDecoration(
                   labelText: 'Título',
                 ),
@@ -65,7 +66,7 @@ class _AdicionarSolicitacaoPageState extends State<AdicionarSolicitacaoPage> {
                 },
               ),
               TextFormField(
-                controller: _descricaoController,
+                controller: descricaoController,
                 decoration: InputDecoration(
                   labelText: 'Descrição',
                 ),
@@ -76,7 +77,11 @@ class _AdicionarSolicitacaoPageState extends State<AdicionarSolicitacaoPage> {
                   return null;
                 },
               ),
-              //colocar em algum lugar o botão pra camera
+              Padding(padding: EdgeInsets.all(10)),
+              ElevatedButton.icon(
+                  onPressed: () {},
+                  icon: Icon(Icons.camera_alt),
+                  label: Text('Tirar foto')),
             ],
           ),
         ),
