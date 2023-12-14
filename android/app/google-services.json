@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "545888584887",
+    "project_id": "raa-pdm",
+    "storage_bucket": "raa-pdm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545888584887:android:f8e69e32e960869c197932",
+        "android_client_info": {
+          "package_name": "com.example.raa_pdm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5p2xZojG5UrGNCb45BxU59WPchuyhVqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
