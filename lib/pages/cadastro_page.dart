@@ -88,6 +88,11 @@ class _CadastroPageState extends State<CadastroPage> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     registrar();
+                    if (AuthService().usuario != null) {
+                      AuthService()
+                          .usuario!
+                          .updateDisplayName(nomeController.text);
+                    }
                   }
                   setState(() => loading = false);
                 },
